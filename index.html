@@ -111,6 +111,8 @@
   table{width:100%;border-collapse:collapse;}
   thead th{text-align:left;font-size:11.5px;text-transform:none;color:var(--ink-muted);font-weight:600;padding:8px 10px;border-bottom:1px solid var(--line);}
   tbody td{padding:11px 10px;border-bottom:1px solid var(--line);font-size:14px;vertical-align:middle;}
+  .big-rows td{font-size:16px;padding:8px 10px;}
+  .big-rows th{font-size:12.5px;}
   tbody tr:last-child td{border-bottom:none;}
   tbody tr:hover{background:#FBFAF6;}
   .badge{display:inline-block;padding:3px 9px;border-radius:20px;font-size:12px;font-weight:700;}
@@ -648,7 +650,7 @@ function renderTxTable(){
   if(rows.length===0){
     return countLine+'<div class="empty-state">No hay movimientos que coincidan con los filtros.</div>';
   }
-  return countLine+'<table><thead><tr>'+
+  return countLine+'<table class="big-rows"><thead><tr>'+
     '<th>Fecha</th><th>Tipo</th><th>Cuenta</th><th>Categoría</th><th>Proveedor/Cliente</th><th>Descripción</th><th>Monto</th><th></th>'+
   '</tr></thead><tbody>'+rows.map(renderTxRow).join('')+'</tbody></table>';
 }
@@ -748,7 +750,7 @@ function renderTransferTable(){
   var rows = filteredTransfers();
   var countLine = '<div style="margin-bottom:10px;font-size:13.5px;color:var(--ink-muted);"><strong class="num">'+rows.length+'</strong> '+(rows.length===1?'transferencia encontrada':'transferencias encontradas')+'</div>';
   if(rows.length===0) return countLine+'<div class="empty-state">No hay transferencias registradas.</div>';
-  return countLine+'<table><thead><tr><th>Fecha</th><th>Origen</th><th>Destino</th><th>Monto origen</th><th>Monto destino</th><th>Notas</th><th></th></tr></thead><tbody>'+
+  return countLine+'<table class="big-rows"><thead><tr><th>Fecha</th><th>Origen</th><th>Destino</th><th>Monto origen</th><th>Monto destino</th><th>Notas</th><th></th></tr></thead><tbody>'+
     rows.map(renderTransferRow).join('')+'</tbody></table>';
 }
 function renderTransferRow(t){
